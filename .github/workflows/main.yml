@@ -1,16 +1,18 @@
-name: Notify
-on:
-  push:
-  release:
-    types: [published]
-
+name: Telegram Notifications
+on: [push]
 jobs:
-  notify:
-    name: Notify via Telegram
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Send message to Telegram
-        uses: Lukasss93/telegram-action@v1
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.telegram_token }}
-          TELEGRAM_CHAT: ${{ secrets.telegram_chat }}
+    - uses: actions/checkout@master
+    - name: Notification
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        format: html
+        message: |
+          ⚡️ <a href="https://github.com/aszenz/repo/commit/${{ github.event.push.after }}">Commits</a> pushed to master by <em>${{ github.event.push.pusher.name }}</em> ⚡️
+          ${{ github.actor }}:${{ github.event.head_commit.message }}

@@ -14,5 +14,6 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         format: html
         message: |
-          ⚡️ <a href="https://github.com/aszenz/repo/commit/${{ github.event.push.after }}">Commits</a> pushed to master by <em>${{ github.event.push.pusher.name }}</em> ⚡️
-          ${{ github.actor }}:${{ github.event.head_commit.message }}
+          🤖 Repo : ${{ github.repo.name }} 
+          ⚡️ <a href="https://github.com/JarvisStriker/usn-formatter/commit/${{ github.event.push.after }}">Commits</a> pushed to ${{ github.event.ref }} by <em>${{ github.event.push.pusher.name }}</em> ⚡️
+          ${{ github.actor }} : ${{ github.event.head_commit.message }}

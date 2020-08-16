@@ -12,6 +12,5 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message:  |
-          	Action - ${{ github.action }}. Event name - ${{ github.event.name }}. Workspace - ${{ github.workspace }}
+        message: Action - ${{ github.action }}. Event name - ${{ github.event.name }}. Workspace - ${{ github.workspace }}
   

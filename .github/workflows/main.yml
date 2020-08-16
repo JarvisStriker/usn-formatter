@@ -1,16 +1,16 @@
-name: Telegram Notifications
-on: [push]
-jobs:
+name: Notify
+on:
+  push:
+  release:
+    types: [published]
 
-  build:
-    name: Build
+jobs:
+  notify:
+    name: Notify via Telegram
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Notification
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: Repository - ${{ repo }} \n Event name - ${{ github.event.name }}. Workspace - ${{ github.workspace }}
-  
+      - name: Send message to Telegram
+        uses: Lukasss93/telegram-action@v1
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.telegram_token }}
+          TELEGRAM_CHAT: ${{ secrets.telegram_chat }}

@@ -1,2 +1,5 @@
-- name: Notify Telegram
-  uses: yanzay/notify-telegram@v0.1.0
+- name: send default message
+  uses: appleboy/telegram-action@master
+  with:
+    to: ${{ secrets.TELEGRAM_TO }}
+    token: ${{ secrets.TELEGRAM_TOKEN }}

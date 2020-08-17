@@ -12,20 +12,19 @@
 
     <mat-form-field appearance="outline" style="padding-left: 2em;">
       <mat-label class="font">Formatted USNs</mat-label>
-      <!-- <input matInput formControlName="output" [readonly]="true" rows="8"> -->
       <textarea matInput formControlName="output" rows="8" cols="20" [readonly]="true"></textarea>
     </mat-form-field>
 
     <button mat-raised-button style="margin-left: 2em;" (click)="copy()">
-      <mat-icon aria-hidden="false" aria-label="Copy">content_copy</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Copy" [inline]="true">content_copy</mat-icon>
       Copy
     </button>
 
     <div class="button-row" style="padding-top: 2em;">
       <button mat-raised-button (click)="clear()">Clear</button>
-      <button mat-raised-button color="primary" (click)="format()">Format</button>
-      <button mat-raised-button color="primary" (click)="formatAndCopy()">
-        <mat-icon aria-hidden="false" aria-label="Copy" size="4pt">content_copy</mat-icon>
+      <button mat-raised-button color="primary" (click)="format()" [disabled]="usnForm.invalid">Format</button>
+      <button mat-raised-button color="primary" (click)="formatAndCopy()" [disabled]="usnForm.invalid">
+        <mat-icon aria-hidden="false" aria-label="Copy" [inline]="true">content_copy</mat-icon>
         Format & Copy
       </button>
     </div>

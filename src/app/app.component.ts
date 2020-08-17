@@ -67,7 +67,7 @@ export class AppComponent {
 
   copy() {
     if (this.usnForm.controls.output.value.length < 1) {
-      this.toastr.error('Format the string to copy', 'Nothing to Copy!');
+      this.toastr.error('Enter the USNs to format and copy', 'Nothing to Copy!');
     }
     else {
       navigator.clipboard.writeText(this.listUSNs.join('\n'));

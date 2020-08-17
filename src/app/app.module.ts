@@ -10,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
-// import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { ToastrModule } from 'ngx-toastr';
     MatButtonModule,
     MatIconModule,
     ToastrModule.forRoot(),
-    // ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

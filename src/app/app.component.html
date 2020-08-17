@@ -1,16 +1,34 @@
 <mat-toolbar>
-  <span>USN Formatter</span>
+  <span class="font">USN Formatter</span>
 </mat-toolbar>
 
 <div style="margin-top: 4em; margin-left: 2em;">
-  <form>
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Enter the USNs</mat-label>
-      <textarea matInput placeholder="1ABC10 67,68,69..." rows="8" cols="20"></textarea>
+  <form [formGroup]="usnForm">
+    <mat-form-field appearance="outline">
+      <mat-label class="font">Enter the USNs</mat-label>
+      <textarea matInput formControlName="usns" placeholder="1ABC10 67,68,69..." rows="8" cols="20"></textarea>
+      <mat-error *ngIf="formControls.usns.errors?.required && formControls.usns.dirty">*Required</mat-error>
     </mat-form-field>
-  </form>
 
-  <div>
-    <button mat-raised-button color="primary">Format</button>
-  </div>
+    <mat-form-field appearance="outline" style="padding-left: 2em;">
+      <mat-label class="font">Formatted USNs</mat-label>
+      <!-- <input matInput formControlName="output" [readonly]="true" rows="8"> -->
+      <textarea matInput formControlName="output" rows="8" cols="20" [readonly]="true"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button style="margin-left: 2em;" (click)="copy()">
+      <mat-icon aria-hidden="false" aria-label="Copy">content_copy</mat-icon>
+      Copy
+    </button>
+
+    <div class="button-row" style="padding-top: 2em;">
+      <button mat-raised-button (click)="clear()">Clear</button>
+      <button mat-raised-button color="primary" (click)="format()">Format</button>
+      <button mat-raised-button color="primary" (click)="formatAndCopy()">
+        <mat-icon aria-hidden="false" aria-label="Copy" size="4pt">content_copy</mat-icon>
+        Format & Copy
+      </button>
+    </div>
+
+  </form>
 </div>

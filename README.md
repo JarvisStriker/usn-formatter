@@ -1,5 +1,5 @@
 # UsnFormatter
-![Generic badge](https://img.shields.io/badge/Formatter-Academic-blue)
+![Shields.io](https://img.shields.io/badge/Formatter-Academic-blue)
 
 Only used for VTU students USN serialization
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
